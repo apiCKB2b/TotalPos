@@ -1,0 +1,122 @@
+ARCHIVO CONFIGURACIÓN PINPAD LOCAL - SIMULADOR
+
+Logs: True
+PinPadConexion: COM5
+PinPadTimeOut: 45
+PinPadPuerto: 
+pinpadMensaje: * C K L A S S *
+PinPadContactless: True
+PinPadClaveBines: 
+HostUrl: http://localhost:8080/totalpos/ws/autorizaciones/transacciones
+BinesUrl: http://localhost:8080/totalpos/ws/recursos/bines/concentrado/actualizaciones
+TokenUrl: http://localhost:8080/oauth/token
+TelecargaUrl: http://localhost:8080/telecargas/descargas
+HostTimeOut: 30
+FuncionalidadGaranti: False
+FuncionalidadMoto: False
+TecladoLiberado: False
+ComercioAfiliacion: 0000000
+ComercioTerminal: 00001001
+ComercioMac: 11-22-33-44-55-66
+IdAplicacion: --7e8e667438cb00903250ae3cda9b4bc9398f8084bb46aff9495286bf344a695f--7ac900cf98f869861959258b06c0a3c913f29ba5db5317fd9c5782fb7b21caa7
+ClaveSecreta 5e72c65f-42f2-46fb-8816-fb1022b387a8
+
+
+jazmin.cabrera.navarro.contractor@bbva.com
+------------------------------------------------------------------------------------------------------------------
+ARCHIVO CONFIGURACIÓN PINPAD PRUEBAS UNITARIAS/INTEGRALES/CERTIFICACIÓN
+
+Logs: True
+PinPadConexion: COM5
+PinPadTimeOut: 45
+PinPadPuerto: 
+pinpadMensaje: * C K L A S S *
+PinPadContactless: True
+PinPadClaveBines: 
+HostUrl: https://totalpostest.egl-cloud.com/totalpos/ws/autorizaciones/transacciones
+BinesUrl: https://totalpostest.egl-cloud.com/totalpos/ws/recursos/bines/concentrado/actualizaciones
+TokenUrl: https://totalpostest.egl-cloud.com/totalpos/ws/autenticacion/oauth/token
+TelecargaUrl: http://localhost:8080/telecargas/descargas
+HostTimeOut: 30
+FuncionalidadGaranti: False
+FuncionalidadMoto: False
+TecladoLiberado: False
+ComercioAfiliacion: 4093631 ---> 6227979
+ComercioTerminal: 10000000
+ComercioMac: B0-7D-64-55-05-69
+IdAplicacion: 7ac900cf98f869861959258b06c0a3c913f29ba5db5317fd9c5782fb7b21caa7
+ClaveSecreta: 5e72c65f-42f2-46fb-8816-fb1022b387a8
+
+
+
+------------------------------------------------------------------------------------------------------------------
+ARCHIVO CONFIGURACIÓN PINPAD PRODUCTIVO
+
+Logs: True
+PinPadConexion: COM5
+PinPadTimeOut: 45
+PinPadPuerto: 
+pinpadMensaje: * C K L A S S *
+PinPadContactless: True
+PinPadClaveBines: 
+HostUrl: https://www.totalpos.eglobal.com.mx/totalpos/ws/autorizaciones/transacciones
+BinesUrl: https://www.totalpos.eglobal.com.mx/totalpos/ws/recursos/bines/concentrado/actualizaciones
+TokenUrl: https://www.totalpos.eglobal.com.mx/totalpos/ws/autenticacion/oauth/token
+TelecargaUrl: http://localhost:8080/telecargas/descargas
+HostTimeOut: 30
+FuncionalidadGaranti: False
+FuncionalidadMoto: False
+TecladoLiberado: False
+ComercioAfiliacion: Ingresa comercioAfiliacion
+ComercioTerminal: Ingresa comercioTerminal
+ComercioMac: Ingresa comercioMAC
+IdAplicacion: b644a319ef8a74b89dac7458795cd4cb7d9a496160ee16645cf05594718528a8
+ClaveSecreta: b74ce833-9338-409d-bb2f-c43a770dbdc5
+
+
+
+------------------------------------------------------------------------------------------------------------------
+PÁGINA PARA DAR DE ALTA PINPAD PRUEBAS UNITARIAS
+
+https://totalpostest.egl-cloud.com/TotalPos-web/webgt/adminG.xhtml
+Pass: Cklass01
+
+
+------------------------------------------------------------------------------------------------------------------
+PÁGINA PARA CARGA DE LLAVES PINPAD
+Usuario: CNAVA
+Pass: Carlos90$
+
+
+------------------------------------------------------------------------------------------------------------------
+SUCURSAL DINÁMICA 
+PASO 1:
+//CREAR PEDIDOS CON LOS USUARIOS DE ALEX U ÓSCAR
+	_010 FEDERALISMO PRUEBA
+	ALEX USER: 03350857
+	OSCAR USER: 00000017
+	Modelo: Varios
+	Cantidad: 1
+	
+
+PASO 2:
+//CAMBIA VALOR DE PEDIDO EN DB w08suc10 
+	USE _010;
+	UPDATE VT_DETPEDIDOS
+	SET NivelUsr = 3,
+	PrecioBase = X,
+	PrecioExt = X,
+	PrecioUnitario = X
+	WHERE PedidoId = 'X';
+	SELECT * FROM VT_DETPEDIDOS WHERE PedidoId = 'X';
+	SELECT * FROM VT_PAGOS WHERE PedidoId = 'X';
+	
+	
+PASO 3:
+//VERIFICAR PEDIDO EN PAGOS 
+
+
+PASO 4:
+//LLAMAR EL PEDIDO EN PINPAD Y REALIZAR PAGO
+
+Cklass01
